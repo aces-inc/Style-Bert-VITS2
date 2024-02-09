@@ -161,9 +161,10 @@ class Model:
                     if i != len(texts) - 1:
                         audios.append(np.zeros(int(44100 * split_interval)))
                 audio = np.concatenate(audios)
-            with warnings.catch_warnings():
-                warnings.simplefilter("ignore")
-                audio = convert_to_16_bit_wav(audio)
+            # NOTE (otake): この後でリサンプリングするため、ここでは16bitに変換しない
+            # with warnings.catch_warnings():
+            #     warnings.simplefilter("ignore")
+            #     audio = convert_to_16_bit_wav(audio)
         logger.info("Audio data generated successfully")
         return (self.hps.data.sampling_rate, audio)
 
