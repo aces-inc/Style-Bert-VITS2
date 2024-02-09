@@ -510,9 +510,9 @@ def handle_long(sep_phonemes: list[list[str]]) -> list[list[str]]:
                 if sep_phonemes[i][j] == "ー":
                     sep_phonemes[i][j] = sep_phonemes[i][j - 1][-1]
     return sep_phonemes
-
-
-tokenizer = AutoTokenizer.from_pretrained("./bert/deberta-v2-large-japanese-char-wwm")
+from pathlib import Path
+p = Path(__file__).resolve().parents[1] / "bert/deberta-v2-large-japanese-char-wwm"
+tokenizer = AutoTokenizer.from_pretrained(p)
 
 
 def align_tones(
