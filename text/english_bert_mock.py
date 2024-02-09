@@ -5,8 +5,9 @@ from transformers import DebertaV2Model, DebertaV2Tokenizer
 
 from config import config
 
-
-LOCAL_PATH = "./bert/deberta-v3-large"
+from pathlib import Path
+p = Path(__file__).resolve().parents[1]
+LOCAL_PATH = p / "bert/deberta-v3-large"
 
 tokenizer = DebertaV2Tokenizer.from_pretrained(LOCAL_PATH)
 

@@ -5,7 +5,9 @@ from transformers import AutoModelForMaskedLM, AutoTokenizer
 
 from config import config
 
-LOCAL_PATH = "./bert/chinese-roberta-wwm-ext-large"
+from pathlib import Path
+p = Path(__file__).resolve().parents[1]
+LOCAL_PATH = p / "bert/chinese-roberta-wwm-ext-large"
 
 tokenizer = AutoTokenizer.from_pretrained(LOCAL_PATH)
 

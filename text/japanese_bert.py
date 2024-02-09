@@ -6,7 +6,9 @@ from transformers import AutoModelForMaskedLM, AutoTokenizer
 from config import config
 from text.japanese import text2sep_kata
 
-LOCAL_PATH = "./bert/deberta-v2-large-japanese-char-wwm"
+from pathlib import Path
+p = Path(__file__).resolve().parents[1]
+LOCAL_PATH = p / "bert/deberta-v2-large-japanese-char-wwm"
 
 tokenizer = AutoTokenizer.from_pretrained(LOCAL_PATH)
 
